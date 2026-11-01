@@ -829,6 +829,8 @@ class Gamemale:
 
     def poke_users(self):
         count = 0
+        """
+        不做了
         for uid in self.uids:
             url = self._url("/home.php?mod=spacecp&ac=poke&op=send&uid=%s&inajax=1" % uid)
             data = {"formhash": self.post_formhash, "poke": "1",
@@ -840,6 +842,7 @@ class Gamemale:
                 time.sleep(1)
             except Exception as exc:  # noqa: BLE001
                 self.task_logger.warning("打招呼 %s 失败: %r" % (uid, exc))
+        """
         return count
 
     def stance_blogs(self, target=10, max_pages=3):
@@ -912,6 +915,8 @@ class Gamemale:
         return new_count, done_count, len(seen)
 
     def draw_and_guess(self):
+
+        """
         url = self._url("/plugin.php?id=viewui_draw&mod=api&ac=adddraw")
         base64_img = ("data:image/png;base64,"
                       "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADklEQVR4AWL6////fwAAAAD"
@@ -939,6 +944,8 @@ class Gamemale:
             return "失败: %s" % str(msg)[:30]
         except Exception as exc:  # noqa: BLE001
             return "提交异常: %r" % exc
+        """
+        return "跳过"
 
     def execute_interactive_tasks(self):
         self.task_logger.info("开始执行互动作业...")
